@@ -17,9 +17,9 @@ const CTACard = () => {
           Explore the world with me!
         </h3>
         <p className="max-w-lg mt-2 text-lg">
-          Explore the world with me! I'm travelling around the world. I've
+          {`Explore the world with me! I'm travelling around the world. I've
           visited most of the great cities of america and currently I'm
-          travelling in europe. Join me
+          travelling in europe. Join me`}
         </p>
         <form className="flex items-center w-full gap-2 mt-6">
           <input
