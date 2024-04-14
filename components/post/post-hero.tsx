@@ -5,11 +5,12 @@ import Image from "next/image";
 
 interface PostHeroProps {
   post: Post;
+  locale: "en" | "de";
 }
-const PostHero = ({ post }: PostHeroProps) => {
+const PostHero = ({ post, locale }: PostHeroProps) => {
   return (
     <div>
-      <PostContent isPostPage post={post} />
+      <PostContent locale={locale} isPostPage post={post} />
       <Image
         className="rounded-md object-cover object-center h-[300px] md:h-[500px] mt-6"
         width={1280}

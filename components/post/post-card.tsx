@@ -3,17 +3,20 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import PostContent from "./post-content";
+import { getDictionary } from "@/lib/getDictionary";
 
 interface PostProps {
   post: Post;
   layout?: "vertical" | "horizontal";
   reverse?: boolean;
+  locale: "en" | "de";
 }
 
 const PostCard = ({
   post,
   layout = "horizontal",
   reverse = false,
+  locale,
 }: PostProps) => {
   return (
     <Link
@@ -22,7 +25,7 @@ const PostCard = ({
           ? "grid items-center grid-cols-1 md:grid-cols-2 gap-10"
           : " space-y-10"
       }`}
-      href={`/post/${post?.slug}`}
+      href={`/${locale}/post/${post?.slug}`}
     >
       <Image
         className={`rounded-md w-full object-cover object-center h-full max-h-[300px] ${
@@ -33,7 +36,7 @@ const PostCard = ({
         width={600}
         height={300}
       />
-      <PostContent post={post} />
+      <PostContent locale={locale} post={post} />
     </Link>
   );
 };

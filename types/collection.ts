@@ -9,6 +9,11 @@ export interface Post {
   body: string;
   date_created: string;
   date_updated: string;
+  translations?: {
+    title?: string;
+    description?: string;
+    body?: string;
+  }[];
 }
 
 export interface Category {
@@ -16,6 +21,15 @@ export interface Category {
   title: string;
   slug?: string;
   description?: string;
+  translations?: Translations[];
+}
+
+export interface Translations {
+  id: number;
+  category_id: string;
+  languages_id: string;
+  title: string;
+  description: string;
 }
 
 export interface Author {

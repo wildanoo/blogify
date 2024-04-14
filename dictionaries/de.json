@@ -1,0 +1,25 @@
+{
+  "navigation": {
+    "links": {
+      "cities": "Städte",
+      "experience": "Erlebnisse"
+    }
+  },
+  "buttons": {
+    "readMore": "Mehr lesen"
+  },
+  "ctaCard": {
+    "title": "Erkunde die Welt mit mir!",
+    "description": "Erkunde die Welt mit mir! Ich reise um die Welt. Ich habe die meisten großartigen Städte Amerikas besucht und reise derzeit in Europa. Begleite mich",
+    "button": "Registrieren",
+    "placeholder": "Schreiben Sie Ihre E-Mail.",
+    "subscriberText1": "Trete unserem",
+    "subscriberText2": "Jetzt bei!"
+  },
+  "footer": {
+    "description": "Ein minimalistischer und schöner Reiseblog, der Erfahrungen und Städte auf der ganzen Welt teilt!",
+    "rightsText": "Alle Rechte vorbehalten | Urheberrecht",
+    "creatorText": "Mit Liebe erstellt von",
+    "currentlyAtText": "Derzeit in"
+  }
+}

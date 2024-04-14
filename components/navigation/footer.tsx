@@ -3,14 +3,16 @@ import PaddingContainer from "../layout/padding-container";
 import siteConfig from "@/config/site";
 import Link from "next/link";
 import SocialLink from "../elements/social-link";
+import { getDictionary } from "@/lib/getDictionary";
 
-const Footer = () => {
+const Footer = async ({ locale }: { locale: "en" | "de" }) => {
+  const dictionary = await getDictionary(locale);
   return (
     <div className="py-8 mt-10 border-t">
       <PaddingContainer>
         <div>
           <h2 className="text-3xl font-bold">{siteConfig.siteName}</h2>
-          <p className="max-w-md mt-2 text-lg">{siteConfig.description}</p>
+          <p className="max-w-md mt-2 text-lg">{dictionary.footer.description}</p>
         </div>
 
         <div className="flex flex-wrap justify-between gap-4 mt-6">
@@ -40,7 +42,7 @@ const Footer = () => {
             </div>
           </div>
           <div>
-            <div>Currently At</div>
+            <div>{dictionary.footer.currentlyAtText}</div>
             <div className="flex items-center px-3 py-2 gap-2 bg-white rounded-md shadow-md">
               <div className="w-2 h-2 rounded-full bg-emerald-400" />
               {siteConfig.currentlyAt}
@@ -50,10 +52,10 @@ const Footer = () => {
 
         <div className="flex flex-wrap items-center justify-between gap-4 py-3 mt-16 border-t">
           <div className="text-sm text-neutral-400">
-            All rights reserved | Copyright {new Date().getFullYear()}
+            {dictionary.footer.rightsText} {new Date().getFullYear()}
           </div>
           <div className="text-sm">
-            Made with love by{" "}
+            {dictionary.footer.creatorText}{" "}
             <Link
               className="underline underline-offset-4"
               href="https://twitter.com/wldno"
