@@ -43,6 +43,9 @@ export const generateMetadata = async ({
         "de-DE": `${process.env.NEXT_PUBLIC_SITE_URL}/de`,
       },
     },
+    verification: {
+      google: "qB0BwI0y9iia4MhmoX9N474iA4NE1yrvVSicHXFvHGE",
+    },
   };
 };
 
@@ -56,14 +59,14 @@ export default function RootLayout({
   return (
     <html lang={lang}>
       <Script
-        strategy="afterInteractive"
-        src="https://www.googletagmanager.com/gtag/js?id=G-J7JB825Y4F"
+        async
+        src="https://www.googletagmanager.com/gtag/js?id=G-XSR8S5M4PK"
       ></Script>
       <Script id="google-analytics">
         {`window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-  gtag('config', 'G-J7JB825Y4F');`}
+  gtag('config', 'G-XSR8S5M4PK');`}
       </Script>
       <body className={inter.className}>
         <Navigation locale={lang as "en" | "de"} />
