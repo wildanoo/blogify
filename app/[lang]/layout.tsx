@@ -28,7 +28,7 @@ export const generateMetadata = async ({
       siteName: siteConfig.siteName,
       images: [
         {
-          url: "https://localhost:3000/og.png", // Must be an absolute URL
+          url: `${process.env.NEXT_PUBLIC_SITE_URL}/og.png`, // Must be an absolute URL
           width: 1200,
           height: 628,
         },

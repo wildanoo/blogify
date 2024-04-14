@@ -12,6 +12,7 @@ const PostHero = ({ post, locale }: PostHeroProps) => {
     <div>
       <PostContent locale={locale} isPostPage post={post} />
       <Image
+        priority
         className="rounded-md object-cover object-center h-[300px] md:h-[500px] mt-6"
         width={1280}
         height={500}
