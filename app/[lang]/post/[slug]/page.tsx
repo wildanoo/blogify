@@ -1,4 +1,3 @@
-import { DUMMY_POSTS } from "@/DUMMY_DATA";
 import CTACard from "@/components/elements/cta-card";
 import SocialLink from "@/components/elements/social-link";
 import PaddingContainer from "@/components/layout/padding-container";
@@ -7,51 +6,11 @@ import PostHero from "@/components/post/post-hero";
 import siteConfig from "@/config/site";
 import directus from "@/lib/directus";
 import { getDictionary } from "@/lib/getDictionary";
+import { getPostData } from "@/lib/utils";
 import { Post } from "@/types/collection";
 import { readItems } from "@directus/sdk";
 import { notFound } from "next/navigation";
-import React, { cache } from "react";
-
-export const getPostData = cache(async (postSlug: string, locale: string) => {
-  try {
-    const post = await directus.request(
-      readItems("post", {
-        filter: { slug: { _eq: postSlug } },
-        fields: [
-          "*",
-          "category.id",
-          "category.title",
-          "author.id",
-          "author.first_name",
-          "author.last_name",
-          "translations.*",
-          "category.translations.*",
-        ],
-      })
-    );
-
-    const postData = post?.[0] as Post;
-    if (locale === "en") {
-      return postData;
-    } else {
-      const localisedPostData = {
-        ...postData,
-        title: postData?.translations?.[0].title,
-        description: postData?.translations?.[0].description,
-        body: postData?.translations?.[0].body,
-        category: {
-          ...postData?.category,
-          title: postData?.category?.translations?.[0]?.title,
-        },
-      };
-
-      return localisedPostData;
-    }
-  } catch (error) {
-    console.log(error);
-    throw new Error("Error fetching post");
-  }
-});
+import React from "react";
 
 export const generateMetadata = async ({
   params: { slug, lang },
@@ -90,7 +49,7 @@ export const generateMetadata = async ({
 export const generateStaticParams = async () => {
   try {
     const posts = await directus.request(
-      readItems("post", {
+      readItems("post" as any, {
         filter: { status: { _eq: "published" } },
         fields: ["slug"],
       })

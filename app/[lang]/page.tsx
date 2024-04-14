@@ -15,7 +15,7 @@ export default async function Home({ params }: { params: { lang: string } }) {
   const getAllPosts = async () => {
     try {
       const posts = await directus.request<Post[]>(
-        readItems("post", {
+        readItems("post" as any, {
           fields: [
             "*",
             { author: ["id", "first_name", "last_name"] },

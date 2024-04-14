@@ -1,67 +1,10 @@
-import { DUMMY_CATEGORIES, DUMMY_POSTS } from "@/DUMMY_DATA";
 import PaddingContainer from "@/components/layout/padding-container";
 import PostList from "@/components/post/post-lists";
 import directus from "@/lib/directus";
 import { readItems } from "@directus/sdk";
-import { Category, Post } from "@/types/collection";
+import { Post } from "@/types/collection";
 import { notFound } from "next/navigation";
-import { cache } from "react";
-import { Metadata } from "next";
-
-export const getCategoryData = cache(
-  async (categorySlug: string, locale: string) => {
-    try {
-      const category = await directus.request(
-        readItems("category", {
-          filter: {
-            slug: {
-              _eq: categorySlug,
-            },
-          },
-          fields: [
-            "*",
-            "translations.*",
-            "posts.*",
-            "posts.author.id",
-            "posts.author.first_name",
-            "posts.author.last_name",
-            "posts.category.id",
-            "posts.category.title",
-            "posts.translations.*",
-          ],
-          limit: 100,
-        })
-      );
-
-      if (locale === "en") {
-        return category[0];
-      } else {
-        const fetchedCategory = category?.[0];
-        const localisedCategory = {
-          ...fetchedCategory,
-          title: fetchedCategory.translations[0].title,
-          description: fetchedCategory.translations[0].description,
-          posts: fetchedCategory.posts.map((post: any) => {
-            return {
-              ...post,
-              title: post.translations[0].title,
-              description: post.translations[0].description,
-              body: post.translations[0].body,
-              category: {
-                ...post.category,
-                title: fetchedCategory.translations[0].title,
-              },
-            };
-          }),
-        };
-        return localisedCategory;
-      }
-    } catch (error) {
-      console.log(error);
-      throw new Error("Error fetching category");
-    }
-  }
-);
+import { getCategoryData } from "@/lib/utils";
 
 export const generateMetadata = async ({
   params: { category, lang },
@@ -132,11 +75,11 @@ export const generateStaticParams = async () => {
     throw new Error("Error fetching categories");
   }
 };
-const Page = async ({
-  params,
-}: {
+type PageProps = {
   params: { category: string; lang: string };
-}) => {
+};
+
+const Page: React.FC<PageProps> = async ({ params }) => {
   const locale = params.lang;
   const categorySlug = params.category;
 

@@ -19,17 +19,17 @@
   dependencies:
     regenerator-runtime "^0.14.0"
 
-"@directus/sdk@^15.0.2":
-  version "15.0.2"
-  resolved "https://registry.yarnpkg.com/@directus/sdk/-/sdk-15.0.2.tgz#216997ae6d6f961f19e2b3444a55d41f41b855a2"
-  integrity sha512-OGgj7twVa8rIGONXwTWKUru8t6amyd+rsq/7OukOTR1z199p1O8hsLJz7buKualGyqJvoX21CeTNEg9jcQHPPg==
+"@directus/sdk@^15.1.0":
+  version "15.1.0"
+  resolved "https://registry.yarnpkg.com/@directus/sdk/-/sdk-15.1.0.tgz#813ad4b2e1f7b2e297212e69852afc3598382f3d"
+  integrity sha512-M2+Z1WmU8Q5KlR22K5ugmBHq10a6tcGl3QuvGKnN+jNwDnRyN5brJxt7FvgtWrY3Q1ToGLxmL37GHAH9s12dlQ==
   dependencies:
-    "@directus/system-data" "1.0.1"
+    "@directus/system-data" "1.0.2"
 
-"@directus/system-data@1.0.1":
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/@directus/system-data/-/system-data-1.0.1.tgz#41254a59c56e0eab5ec4bb907c70f457639fec2a"
-  integrity sha512-sm2gO9SUcRle5rCsmS4qby2K8OfvewnU9/Iao7brGyexLjXDrvfxBB2danNWVLw1qE+UrLX/R+caVrxQ4ZaMkw==
+"@directus/system-data@1.0.2":
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/@directus/system-data/-/system-data-1.0.2.tgz#958b3a4573601dec82bac8454ce2c7486fa42706"
+  integrity sha512-PweDAwTz4zImEGJnhoaX8apOCvcAfE0aGQrCSk+3cf1sLso0ShNlcDvUymtVfrqOXy0qT9sLa833bpJVaXF5ng==
 
 "@eslint-community/eslint-utils@^4.2.0":
   version "4.4.0"

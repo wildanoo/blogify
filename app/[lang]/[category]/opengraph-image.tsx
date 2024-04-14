@@ -1,7 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 
+import { getCategoryData } from "@/lib/utils";
 import { ImageResponse } from "next/og";
-import { getCategoryData } from "./page";
 export const size = {
   width: 1200,
   height: 630,
